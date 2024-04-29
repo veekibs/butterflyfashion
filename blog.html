@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!-- sets the language as: british english -->
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- the title that appears on the tab -->
+  <title>blog | butterfly fashion</title>
+  <!-- the favicon that appears next to the name on the tab -->
+  <link rel="icon" type="image/x-icon" href="logo stuff/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+  <!-- connects the html file to the css stylesheet -->
+  <link href="blog.css" rel="stylesheet"/>
+  <!-- connects to JQuery to allow for the dynamic filtering of posts on the page -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- connects to ion icons so that the icons from the website, e.g. the cart icon, can be displayed on the website -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<!-- the onload feature ensures that the cart numbers loads as the body of the pages loads as well -->
+<body onload="onLoadCartNumbers()">
+
+  <!-- displays the logo from butterfly fashion in the header -->
+  <section id="header">
+    <a href="index.html"><img src="logo stuff/butterflylogo.png" class="logo" alt="butterfly fashion logo"></a>
+
+    <div>
+        <ul id="navbar">
+        <li><a href="index.html">home</a></li>
+        <li class="dropdown">
+          <a href="shop.html" class="dropbtn">shop</a>
+        <div class="dropdown-content">
+          <a href="preteens.html">preteens</a>
+          <a href="teens.html">teens</a>
+        </div>
+        </li>
+        <li><a class="active" href="blog.html">blog</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="help.html">help</a></li>
+        <li><a class="lecart" href="cart.html"><ion-icon name="bag-handle-outline"></ion-icon><span>0</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="landing"></section>
+
+  <!-- post filters -->
+  <div class="post-filter container">
+    <span class="filter-item active-filter" data-filter="all">all</span>
+    <span class="filter-item" data-filter="beauty">beauty</span>
+    <span class="filter-item" data-filter="personal-development">personal development</span>
+    <span class="filter-item" data-filter="mental-health">mental health</span>
+    <span class="filter-item" data-filter="relationships">relationships</span>
+  </div>
+
+  <!-- posts -->
+  <section class="post container">
+    <!-- post box 1 -->
+    <div class="post-box beauty" data-category="beauty">
+      <img src="blog imgs/posts/makeup stuff.jpg" alt="makeup products" class="post-img">
+      <h2 class="category">beauty</h2>
+      <a href="" class="post-title">the top ten best beauty products of 2022</a>
+      <span class="post-date">25th nov 2022</span>
+      <p class="post-description">this year's been one hell of a ride hasn't it? well, fear not! at least, in the midst of chaos, you can look your best, no matter what!</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/willow.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">willow veena</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 2 -->
+    <div class="post-box relationships" data-category="relationships">
+      <img src="blog imgs/posts/snowfriends.jpeg" alt="two friends in the snow" class="post-img">
+      <h2 class="category">relationships</h2>
+      <a href="" class="post-title">how to make the most out of your friendships</a>
+      <span class="post-date">20th dec 2022</span>
+      <p class="post-description">discover the magic of the holiday season by strengthening the bonds with your closest friends! learn how to deepen your connections, build trust, and overcome challenges with practical tips and heartfelt advice from people just like you. embrace the joy of giving and receiving, and create unforgettable memories that will last a lifetime and more!</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/girl1.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">kylie magan</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 3 -->
+    <div class="post-box mental-health" data-category="mental-health">
+      <img src="blog imgs/posts/mentalhealthhead.png" alt="thoughts in a head" class="post-img">
+      <h2 class="category">mental health</h2>
+      <a href="" class="post-title">finding balance: taking care of your mental health</a>
+      <span class="post-date">12th oct 2022</span>
+      <p class="post-description">this blog post explores the importance of maintaining good mental health, especially during challenging times. from self-care tips to coping strategies, this post offers helpful advice to help you prioritize your mental well-being and find balance in your life. learn how to recognize and manage stress, anxiety, and other mental health issues so you can feel more confident and empowered in your daily life!</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/girl2.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">jennie park</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 4 -->
+    <div class="post-box personal-development" data-category="personal-development">
+      <img src="blog imgs/posts/PD.jpeg" alt="a girl holding books" class="post-img">
+      <h2 class="category">personal development</h2>
+      <a href="" class="post-title">empowering your potential: top ten books for personal growth</a>
+      <span class="post-date">16th sept 2022</span>
+      <p class="post-description">discover the top ten books for personal development that will inspire and empower you to reach your full potential! whether you're looking to boost your confidence, cultivate self-love, or overcome challenges, these books offer valuable insights and practical tools to help you grow and thrive. get ready to embark on a journey of self-discovery and transformation!</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/girl3.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">maria lee</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 5 -->
+    <div class="post-box mental-health" data-category="mental-health">
+      <img src="blog imgs/posts/mentalhealth.png" alt="mental health is your priority" class="post-img">
+      <h2 class="category">mental health</h2>
+      <a href="" class="post-title">mind matters: navigating your mental health</a>
+      <span class="post-date">2nd jan 2022</span>
+      <p class="post-description">in this blog, we explore different ways to take care of your mental health. from coping mechanisms for stress to navigating difficult emotions, we provide helpful tips and advice to help you feel your best! join us as we dive into the world of mental health and learn how to prioritize your well-being.</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/girl4.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">katie wyland</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 6 -->
+    <div class="post-box beauty">
+      <img src="blog imgs/posts/blackgirl.jpeg" alt="pretty black girl" class="post-img">
+      <h2 class="category">beauty</h2>
+      <a href="" class="post-title">empowering black beauty: celebrating young black girls</a>
+      <span class="post-date">22nd jun 2022</span>
+      <p class="post-description">in a world where beauty standards often exclude people of color, it's important to celebrate and empower young black girls. this blog is dedicated to sharing beauty tips, promoting self-love and confidence, and showcasing inspiring stories of black girls who are breaking barriers and making a difference in their communities. join us in celebrating the unique beauty and strength of black girls everywhere!</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/pretty.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">tiana marble</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 7 -->
+    <div class="post-box beauty" data-category="beauty">
+      <img src="blog imgs/posts/freckles.jpeg" alt="pretty black girl with freckles" class="post-img">
+      <h2 class="category">beauty</h2>
+      <a href="" class="post-title">beauty and the freckles</a>
+      <span class="post-date">25th jul 2022</span>
+      <p class="post-description">embrace your natural beauty and learn tips and tricks to enhance your freckles with makeup and skincare! join us in exploring representation in the beauty industry and the power of self-love and acceptance. this blog is for young black girls who want to feel confident and empowered in their skin.</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/gal.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">leshawna briggs</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 8 -->
+    <div class="post-box relationships" data-category="relationships">
+      <img src="blog imgs/posts/xoxo.jpeg" alt="friends studying" class="post-img">
+      <h2 class="category">relationships</h2>
+      <a href="" class="post-title">can you have fun whilst you study?</a>
+      <span class="post-date">12th sept 2022</span>
+      <p class="post-description">discover the power of teamwork when it comes to studying and acing your exams! in this blog, we share some helpful tips and tricks to make studying with friends fun and effective. from creating a study schedule to keeping each other accountable, you'll learn how to make the most out of your study group and achieve your academic goals together.</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/girlwtvr.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">bailey sky</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 9 -->
+    <div class="post-box beauty" data-category="beauty">
+      <img src="blog imgs/posts/pinkmakeup.jpeg" alt="pink makeup products" class="post-img">
+      <h2 class="category">beauty</h2>
+      <a href="" class="post-title">glow up girls</a>
+      <span class="post-date">29th aug 2022</span>
+      <p class="post-description">whether it's for a school dance or just a day out with friends, every girl deserves to feel confident in her own skin! from skincare routines to makeup tutorials, we've got you covered!</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/red.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">faye mckelly</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 10 -->
+    <div class="post-box personal-development" data-category="personal-development">
+      <img src="blog imgs/posts/staybrave.jpeg" alt="staying brave even if you can't be srong" class="post-img">
+      <h2 class="category">personal development</h2>
+      <a href="" class="post-title">braving the winter storm</a>
+      <span class="post-date">15th dec 2022</span>
+      <p class="post-description">in this article, we explore the ways in which you can develop yourself personally and find the strength to stay brave even in the face of adversity. whether it's dealing with difficult situations or simply navigating the challenges of growing up, these tips and tricks will help you stay strong and confident throughout the winter season and beyond. so grab a hot cocoa and get ready to brave the storm!</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/cara.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">cara meline</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 11 -->
+    <div class="post-box mental-health" data-category="mental-health">
+      <img src="blog imgs/posts/ewsocialmedia.png" alt="social media sucks and is not good for your mental health" class="post-img">
+      <h2 class="category">mental health</h2>
+      <a href="" class="post-title">sun, social media, and mental health</a>
+      <span class="post-date">2nd july 2022</span>
+      <p class="post-description">as the summer heats up, so does our use of social media. but for many young people, this can have a negative impact on their mental health. this article explores the link between social media and mental health, and offers tips and advice for how to stay mentally healthy during the summer months.</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/gale.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">gale summers</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 12 -->
+    <div class="post-box personal-development" data-category="personal-development">
+      <img src="blog imgs/posts/!.jpeg" alt="mindmap of who you could be" class="post-img">
+      <h2 class="category">personal development</h2>
+      <a href="" class="post-title">embrace your inner sunshine</a>
+      <span class="post-date">5th jun 2022</span>
+      <p class="post-description">this summer, take some time to focus on yourself and grow into the best version of you! this blog post offers advice and tips for developing a positive mindset, practicing self-love, and embracing your unique qualities. whether you're feeling down or just want to continue growing, this post is a must-read for anyone looking to spread their inner sunshine!</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/barbie.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">barbara argan</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 13 -->
+    <div class="post-box mental-health" data-category="mental-health">
+      <img src="blog imgs/posts/progress.jpeg" alt="slow progress is still progress" class="post-img">
+      <h2 class="category">mental health</h2>
+      <a href="" class="post-title">new year, new progress</a>
+      <span class="post-date">1st jan 2022</span>
+      <p class="post-description">as we enter the new year, it's important to focus on making progress in our mental health journeys, no matter how slow that progress may be. in this article, we'll explore the importance of taking small steps towards improving our mental health and how to celebrate each milestone along the way! whether you're dealing with anxiety, depression, or just everyday stress, this article is a must-read for anyone looking to prioritize their mental health in the new year.</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/lizzy.png" alt="girl pfp" class="profile-img">
+        <span class="profile-name">elizabeth barnett</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 14 -->
+    <div class="post-box beauty">
+      <img src="blog imgs/posts/boxbraids.jpeg" alt="pretty black girl with gorgeous box braids with beads!" class="post-img">
+      <h2 class="category">beauty</h2>
+      <a href="" class="post-title">easter braids</a>
+      <span class="post-date">2nd apr 2022</span>
+      <p class="post-description">in this blog post, we'll be exploring the beauty and versatility of box braids and how they can be styled for Easter. from pastel colored accessories to bunny ear inspired styles, we've got you covered! let's celebrate our black girl magic and the joy of the season with some fun and festive hairstyles!</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/orangey.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">kenna hayfield</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 15 -->
+    <div class="post-box beauty" data-category="beauty">
+      <img src="blog imgs/posts/mani.png" alt="black girl with manicure" class="post-img">
+      <h2 class="category">beauty</h2>
+      <a href="" class="post-title">summer beauty</a>
+      <span class="post-date">12th aug 2022</span>
+      <p class="post-description">get ready for summer with these beauty tips for keeping your nails in top shape! whether you're hitting the beach or just lounging by the pool, having well-groomed nails can make all the difference. in this article, we'll share our favorite tips and tricks for achieving a perfect mani-pedi that lasts all summer long.</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/lady.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">anne bardugo</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+    <!-- post box 16 -->
+    <div class="post-box relationships" data-category="relationships">
+      <img src="blog imgs/posts/besties.jpeg" alt="two girls looking at the camera smiling" class="post-img">
+      <h2 class="category">relationships</h2>
+      <a href="" class="post-title">summer styling with your bestie!</a>
+      <span class="post-date">1st jun 2022</span>
+      <p class="post-description">summer is here, and what better way to spend it than with your best friend? this blog post will give you the ultimate guide on how to coordinate your outfits with your bestie, so you can slay your summer fashion game together. get ready for some serious fashion inspo and tips on how to make the most out of your friendship this season.</p>
+      <!-- profile -->
+      <div class="profile">
+        <img src="blog imgs/pfp/pinknblue.jpeg" alt="girl pfp" class="profile-img">
+        <span class="profile-name">heather silvers</span>
+      </div>
+      <!-- comment section -->
+      <div class="comments">
+        <span><input id="comment-here" class="comment-here" placeholder="add a comment..."></span>
+        <ion-icon class="send" name="send-outline" onclick="clearComment()"></ion-icon>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section-p1">
+    <div class="col">
+      <img src="logo stuff/butterflylogo.png" alt="butterfly fashion logo">
+      <h4>contact</h4>
+      <p><strong>address:</strong> 90 springfield road, london, WC23 1GX</p>
+      <p><strong>phone:</strong> (+44) 020 7373 0027</p>
+      <p><strong>hours:</strong> 9am - 5pm, monday - saturday</p>
+      <div class="follow">
+        <h4>follow us</h4>
+        <div class="icon">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-icon name="logo-twitter"></ion-icon>
+          <ion-icon name="logo-instagram"></ion-icon>
+          <ion-icon name="logo-pinterest"></ion-icon>
+          <ion-icon name="logo-youtube"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>about</h4>
+      <a href="about.html">about us</a>
+      <a href="#">delivery information</a>
+      <a href="#">privacy policy</a>
+      <a href="#">terms & conditions</a>
+      <a href="#">contact us</a>
+    </div>
+
+    <div class="col">
+      <h4>my account</h4>
+      <a href="#">sign in</a>
+      <a href="#">sign up</a>
+      <a href="#">my wishlist</a>
+      <a href="#">track my order</a>
+      <a href="cart.html">view cart</a>
+    </div>
+
+    <div class="colpay">
+      <h4><strong>we accept:</strong></h4>
+      <img src="clothes/pay.png" alt="payment types">
+    </div>  
+    
+    <div class="copyright">
+      <p>© 2023, butterfly fashion</p>
+    </div>
+  </footer>
+
+  <script src="blog.js"></script>
+  <script src="script.js" defer></script>
+</body>
+
+</html>

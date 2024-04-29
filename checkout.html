@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>checkout | butterfly fashion</title>
+  <link rel="icon" type="image/x-icon" href="logo stuff/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+  <link href="checkout.css" rel="stylesheet"/>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <section id="header">
+    <a href="index.html"><img src="logo stuff/butterflylogo.png" class="logo" alt="butterfly fashion logo"></a>
+
+    <div>
+        <ul id="navbar">
+        <li><a href="index.html">home</a></li>
+        <li class="dropdown">
+          <a href="shop.html" class="dropbtn">shop</a>
+        <div class="dropdown-content">
+          <a href="preteens.html">preteens</a>
+          <a href="teens.html">teens</a>
+        </div>
+        </li>
+        <li><a href="blog.html">blog</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="help.html">help</a></li>
+        <li><a class="active lecart" href="cart.html"><ion-icon name="bag-handle-outline" id="cartIcon" class="carticon"></ion-icon><span>0</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="landing"></section>
+
+  <section id="breadcrumb">
+    <ul>
+      <li><a><strong>shopping bag</strong></a></li>
+      <li><a href="checkout.html">place order</a></li>
+      <li><a>pay</a></li>
+      <li><a>order complete</a></li>
+    </ul>
+  </section>
+
+  <div class="shipping-address">
+    <h2>shipping address</h2>
+      <div class="fname">
+        <label for="fname">first name*: </label>
+        <input type="text" id="fname" name="fname" required>
+      </div>
+      <div class="lname">
+        <label for="lname">last name*: </label>
+        <input type="text" id="lname" name="lname" required>
+      </div>
+      <div class="phonenum">
+        <label for="phonenum">phone number*: </label>
+        <p>(need correct phone number for delivery!)</p>
+        <input type="text" id="phonenum" name="phonenum" required>
+      </div>
+      <div class="email">
+        <label for="email">email*: </label>
+        <p>(need correct email for receipt!)</p>
+        <input type="text" id="email" name="email" required>
+      </div>
+      <div class="address1">
+        <label for="address1">address line 1*: </label>
+        <p>(need correct address for delivery!)</p>
+        <input type="text" id="address1" name="address1" placeholder="house/building/flat number and street name" required>
+      </div>
+      <div class="town">
+        <label for="town">town*: </label>
+        <input type="text" id="town" name="town" required>
+      </div>
+      <div class="city">
+        <label for="city">city*: </label>
+        <input type="text" id="city" name="city" required>
+      </div>
+      <div class="postcode">
+        <label for="postcode">postcode*: </label>
+        <input type="text" id="postcode" name="postcode" required>
+      </div>
+  </div>
+
+<div class="products-container">
+  <div class="products">
+    <table width="100%" class="table" id="cart-table-checkout" style="overflow-x:auto;">
+      <thead>
+        <tr>
+          <td class="img">image</td>
+          <td class="pro">product</td>
+          <td class="pri">price</td>
+          <td class="quan">quantity </td>
+          <td class="sub">subtotal</td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+  
+<!-- Total Table -->
+<div id="carttotal">
+  <h2>cart totals</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td><strong>subtotal</strong></td>
+        <td>£<span id="subtotal"></span></td>
+      </tr>
+      <tr>
+        <td><strong>shipping</strong></td>
+        <td>free</td>
+      </tr>
+      <tr>
+        <td><strong>amount donated to charity:</strong></td>
+        <td>£<span id="charity-amount"></span></td>
+      </tr>
+      <tr>
+        <td><strong>total</strong></td>
+        <td>£<span id="cart-total"></span></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button id="checkoutbtn" onclick="validateFormAndProceed()">proceed to checkout</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- JavaScript code to calculate the totals and update the HTML -->
+<script type="text/javascript">
+  let cartCost = localStorage.getItem("totalCost");
+
+  // Calculate the subtotal
+  let subtotal = 0;
+  if (cartCost != null) {
+    subtotal = parseFloat(cartCost).toFixed(2);
+  }
+
+  // Calculate the amount to donate to charity (10% of subtotal)
+  let charityAmount = (subtotal * 0.1).toFixed(2);
+
+  // Calculate the total
+  let total = (parseFloat(subtotal)).toFixed(2);
+
+  // Update the HTML with the calculated values
+  document.getElementById("subtotal").textContent = subtotal;
+  document.getElementById("charity-amount").textContent = charityAmount;
+  document.getElementById("cart-total").textContent = total;
+</script>
+
+  <footer class="section-p1">
+    <div class="col">
+      <img src="logo stuff/butterflylogo.png" alt="butterfly fashion logo">
+      <h4>contact</h4>
+      <p><strong>address:</strong> 90 springfield road, london, WC23 1GX</p>
+      <p><strong>phone:</strong> (+44) 020 7373 0027</p>
+      <p><strong>hours:</strong> 9am - 5pm, monday - saturday</p>
+      <div class="follow">
+        <h4>follow us</h4>
+        <div class="icon">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-icon name="logo-twitter"></ion-icon>
+          <ion-icon name="logo-instagram"></ion-icon>
+          <ion-icon name="logo-pinterest"></ion-icon>
+          <ion-icon name="logo-youtube"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>about</h4>
+      <a href="about.html">about us</a>
+      <a href="#">delivery information</a>
+      <a href="#">privacy policy</a>
+      <a href="#">terms & conditions</a>
+      <a href="#">contact us</a>
+    </div>
+
+    <div class="col">
+      <h4>my account</h4>
+      <a href="#">sign in</a>
+      <a href="#">sign up</a>
+      <a href="#">my wishlist</a>
+      <a href="#">track my order</a>
+      <a href="#">view cart</a>
+    </div>
+
+    <div class="colpay">
+      <h4><strong>we accept:</strong></h4>
+      <img src="clothes/pay.png" alt="payment types">
+    </div>  
+    
+    <div class="copyright">
+      <p>© 2023, butterfly fashion</p>
+    </div>
+  </footer>
+  <script src="checkout.js"></script>
+  <script src="script.js"></script>
+</body> 
+</html>

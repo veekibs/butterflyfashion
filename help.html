@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>help | butterfly fashion</title>
+  <link rel="icon" type="image/x-icon" href="logo stuff/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+  <link href="help.css" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body onload="onLoadCartNumbers()">
+
+  <section id="header">
+    <a href="index.html"><img src="logo stuff/butterflylogo.png" class="logo" alt="butterfly fashion logo"></a>
+
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">home</a></li>
+        <li class="dropdown">
+          <a href="shop.html" id="dropbtn">shop</a>
+        <div class="dropdown-content">
+          <a href="preteens.html">preteens</a>
+          <a href="teens.html">teens</a>
+        </div>
+        </li>
+        <li><a href="blog.html">blog</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a class="active" href="help.html">help</a></li>
+        <li><a class="lecart" href="cart.html">
+            <ion-icon name="bag-handle-outline" class="carticon"></ion-icon><span id="cart-num">0</span>
+          </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- displays just below the header informing the user that shipping is free -->
+  <section id="help-line">
+    <div class="container-helpline">
+      <ion-icon name="call-outline" class="help-line-icon"></ion-icon>
+      <h2 id="help-line-text">helpline number: +44 1632 960225<br>receive immediate advice from our licensed experts. love butterfly fashion xox</h2>
+    </div>
+  </section>
+
+  <section id="landing"></section>
+
+  <section id="intro">
+    <h2>worries and anxieties, soothed here</h2>
+    <p>if you have <i>any</i> questions, feel free to ask!</p>
+    <p>our licensed experts will get back to you in no less than 24 hours - guaranteed</p>
+    <p>love, butterfly fashion xox</p>
+  </section>
+
+  <!-- creates a form for the user to fill in -->
+  <div class="container">
+    <form name="myForm" id="myForm" onsubmit="return validateForm()"> <!-- when the user clicks on the submit button, the whole form is validated using the validateForm() function -->
+      <div class="row"> <!-- creates a row for name -->
+        <div class="col1"> 
+          <label for="name"><strong>name</strong></label>
+        </div>
+        <div class="col2"> 
+          <input type="text" id="name" name="firstname" placeholder="your name..." required>
+        </div>
+      </div>
+      <div class="row"> <!-- creates a row for email/phone number -->
+        <div class="col1">
+          <label for="contact"><strong>email/phone number</strong></label>
+        </div>
+        <div class="col2">
+          <input type="text" id="contact" name="emailphone" placeholder="your (or a parent's) email or phone number..."
+            required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$|^[0-9]{10}$">
+        </div>
+      </div>
+      <div class="row"> <!-- creates a row for issues -->
+        <div class="col1">
+          <label for="issue"><strong>what issues are you facing?</strong></label>
+        </div>
+        <div class="col2"> <!-- creates a row for a drop down menu for the user to click on one of the options -->
+          <select id="issue" name="issue" required>
+            <option value="relationships">relationships</option>
+            <option value="mental-health">mental health</option>
+            <option value="body-image">body image</option>
+            <option value="school">school</option>
+            <option value="other">other</option>
+          </select>
+        </div>
+      </div>
+      <div class="row"> <!-- creates a row for an extra box for the user to elaborate -->
+        <div class="col1">
+          <label for="subject"><strong>feel free to explain in detail:</strong> this allows our experts to help you the
+            best they can!</label>
+        </div>
+        <div class="col2">
+          <textarea id="subject" name="subject" placeholder="write something..." style="height:200px"></textarea>
+        </div>
+      </div>
+      <br>
+      <div class="row"> 
+        <input type="submit" value="send">
+      </div>
+    </form>
+  </div>
+
+  <!-- JavaScript to validate the form -->
+  <script>
+     // Defines a function named validateForm
+    function validateForm() {
+      // Declares JavaScript variables and assigns them to the form input fields
+      var name = document.forms["myForm"]["firstname"].value; 
+      var contact = document.forms["myForm"]["emailphone"].value;
+      var issue = document.forms["myForm"]["issue"].value;
+      var subject = document.forms["myForm"]["subject"].value;
+
+      // Checks if any of the input fields are empty, and if so, shows an alert
+      if (name == "" || contact == "" || issue == "" || subject == "") {
+        alert("please fill out all fields.");
+        return false;
+      }
+      return true;
+    }
+
+    // Assigns a variable to the form with the name attribute set to "myForm"
+    var form = document.querySelector('form[name="myForm"]');
+    // Adds an event listener to the submit button of the form
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevents the form from submitting by default
+      var isValid = validateForm(); // Validates the form using the validateForm() function
+      // If the form is valid, shows an alert message and submits the form
+      if (isValid) {
+        alert("message sent. a licensed expert will get back to you soon!");
+        form.submit();
+      }
+    });
+  </script>
+
+  <footer class="section-p1">
+    <div class="col">
+      <img src="logo stuff/butterflylogo.png" alt="butterfly fashion logo">
+      <h4>contact</h4>
+      <p><strong>address:</strong> 90 springfield road, london, WC23 1GX</p>
+      <p><strong>phone:</strong> (+44) 020 7373 0027</p>
+      <p><strong>hours:</strong> 9am - 5pm, monday - saturday</p>
+      <div class="follow">
+        <h4>follow us</h4>
+        <div class="icon">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-icon name="logo-twitter"></ion-icon>
+          <ion-icon name="logo-instagram"></ion-icon>
+          <ion-icon name="logo-pinterest"></ion-icon>
+          <ion-icon name="logo-youtube"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>about</h4>
+      <a href="about.html">about us</a>
+      <a href="#">delivery information</a>
+      <a href="#">privacy policy</a>
+      <a href="#">terms & conditions</a>
+      <a href="#">contact us</a>
+    </div>
+
+    <div class="col">
+      <h4>my account</h4>
+      <a href="#">sign in</a>
+      <a href="#">sign up</a>
+      <a href="#">my wishlist</a>
+      <a href="#">track my order</a>
+      <a href="cart.html">view cart</a>
+    </div>
+
+    <div class="colpay">
+      <h4><strong>we accept:</strong></h4>
+      <img src="clothes/pay.png" alt="payment types">
+    </div>
+
+    <div class="copyright">
+      <p>© 2023, butterfly fashion</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

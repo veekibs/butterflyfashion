@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cart | butterfly fashion</title>
+  <link rel="icon" type="image/x-icon" href="logo stuff/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+  <link href="cart.css" rel="stylesheet"/>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <section id="header">
+    <a href="index.html"><img src="logo stuff/butterflylogo.png" class="logo" alt="butterfly fashion logo"></a>
+
+    <div>
+        <ul id="navbar">
+        <li><a href="index.html">home</a></li>
+        <li class="dropdown">
+          <a href="shop.html" id="dropbtn">shop</a>
+        <div class="dropdown-content">
+          <a href="preteens.html">preteens</a>
+          <a href="teens.html">teens</a>
+        </div>
+        </li>
+        <li><a href="blog.html">blog</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="help.html">help</a></li>
+        <li><a class="active lecart" href="cart.html"><ion-icon name="bag-handle-outline" id="cartIcon" class="carticon"></ion-icon><span>0</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="landing"></section>
+
+  <!-- creates a breadcrumb section so the user can conveniently see what is up next -->
+  <section id="breadcrumb">
+    <ul>
+      <li><a href="cart.html"><strong>shopping bag</strong></a></li>
+      <li><a href="checkout.html">place order</a></li>
+      <li><a>pay</a></li>
+      <li><a>order complete</a></li>
+    </ul>
+  </section>
+
+<!-- creates a product table for any of the items that are added to the cart -->
+<div class="products-container">
+  <div class="products">
+    <table width="100%" class="table" style="overflow-x:auto;">
+      <thead>
+        <tr>
+          <td class="rem">remove</td>
+          <td class="img">image</td>
+          <td class="pro">product</td>
+          <td class="pri">price</td>
+          <td class="quan">quantity </td>
+          <td class="sub">subtotal</td>
+        </tr>
+      </thead>
+      <tbody id="cart-table">
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Charity Table -->
+<div id="charitable"></div>
+<div class="charity-select" style="width: 300px; height: 37px;">
+  <select id="charity-select">
+    <option value="0">select a charity</option>
+    <option value="1">bloody good period</option>
+    <option value="2">girls out loud</option>
+    <option value="3">freedom4girls</option>
+    <option value="4">rites for girls</option>
+    <option value="5">period poverty</option>
+    <option value="6">young minds</option>
+    <option value="7">always keeping girls in school</option>
+    <option value="8">plan international</option>
+    <option value="9">hey girls</option>
+  </select>
+</div>
+
+<!-- Total Table -->
+<div id="carttotal">
+  <h2>cart totals</h2>
+  <table id="cart-table">
+    <tbody>
+      <tr>
+        <td><strong>subtotal</strong></td>
+        <td>£<span id="subtotal"></span></td>
+      </tr>
+      <tr>
+        <td><strong>shipping</strong></td>
+        <td>free</td>
+      </tr>
+      <tr>
+        <td><strong>amount donated to charity:</strong></td>
+        <td>£<span id="charity-amount"></span></td>
+      </tr>
+      <tr>
+        <td><strong>total</strong></td>
+        <td>£<span id="cart-total"></span></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <form id="checkout-form">
+            <button id="checkoutbtn" type="submit">checkout</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ensures that if the cart is empty, or the user hasn't selected a charity, the user will NOT be redirected to the checkout.html page -->
+<script>
+  const checkoutForm = document.getElementById('checkout-form');
+  checkoutForm.addEventListener('submit', validateCart);
+
+  function validateCart(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const cartItems = getCartItems(); // Retrieve cart items from your data source
+    const charitySelect = document.getElementById('charity-select');
+
+    if (cartItems.length === 0) {
+      // Display an error message to the user
+      alert('Please add at least one item to your cart before proceeding!');
+    } else if (charitySelect.value === "0") {
+      // Display an error message to the user
+      alert('Please select a charity before proceeding!');
+    } else {
+      // Redirect the user to checkout.html
+      window.location.href = 'checkout.html';
+    }
+  }
+</script>
+
+<!-- JavaScript code to calculate the totals and update the HTML -->
+<script>
+  let cartCost = localStorage.getItem("totalCost");
+
+  // Calculate the subtotal
+  let subtotal = 0;
+  if (cartCost != null) {
+    subtotal = parseFloat(cartCost).toFixed(2);
+  }
+
+  // Calculate the amount to donate to charity (10% of subtotal)
+  let charityAmount = (subtotal * 0.1).toFixed(2);
+
+  // Calculate the total
+  let total = (parseFloat(subtotal)).toFixed(2);
+
+  // Update the HTML with the calculated values
+  document.getElementById("subtotal").textContent = subtotal;
+  document.getElementById("charity-amount").textContent = charityAmount;
+  document.getElementById("cart-total").textContent = total;
+
+</script>
+
+
+  <script>
+    // adds an event listener to the cart table to listen for clicks on the "delete" button
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartTable = document.getElementById('cart-table');
+      cartTable.addEventListener('click', function(event) {
+        if (event.target && event.target.matches('.delete')) {
+          // when a delete button is clicked, the corresponding row is found and removed from the table
+          const row = event.target.closest('tr');
+          const productTag = row.dataset.tag;
+          console.log('productTag:', productTag);
+          removeItem(productTag);
+          console.log('cartItems after removeItem:', JSON.parse(localStorage.getItem('productsInCart')));
+          // removes the corresponding item from local storage 
+          row.remove();
+          const cartItems = getCartItems() || [];
+          console.log('cartItems after getCartItems:', cartItems);
+          const itemToRemove = cartItems.find(item => item.tag === productTag);
+          if (itemToRemove) {
+            // updates the total cost and cart numbers displayed on the page
+            updateTotalCost(-itemToRemove.price, cartItems);
+            console.log('cartCost after updateTotalCost:', parseFloat(localStorage.getItem('totalCost')).toFixed(2));
+            updateCartNumbers();
+            // updates cart display
+            displayCart();
+          }
+        }
+      });
+    });
+  </script>
+
+  <footer class="section-p1">
+    <div class="col">
+      <img src="logo stuff/butterflylogo.png" alt="butterfly fashion logo">
+      <h4>contact</h4>
+      <p><strong>address:</strong> 90 springfield road, london, WC23 1GX</p>
+      <p><strong>phone:</strong> (+44) 020 7373 0027</p>
+      <p><strong>hours:</strong> 9am - 5pm, monday - saturday</p>
+      <div class="follow">
+        <h4>follow us</h4>
+        <div class="icon">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-icon name="logo-twitter"></ion-icon>
+          <ion-icon name="logo-instagram"></ion-icon>
+          <ion-icon name="logo-pinterest"></ion-icon>
+          <ion-icon name="logo-youtube"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>about</h4>
+      <a href="about.html">about us</a>
+      <a href="#">delivery information</a>
+      <a href="#">privacy policy</a>
+      <a href="#">terms & conditions</a>
+      <a href="#">contact us</a>
+    </div>
+
+    <div class="col">
+      <h4>my account</h4>
+      <a href="#">sign in</a>
+      <a href="#">sign up</a>
+      <a href="#">my wishlist</a>
+      <a href="#">track my order</a>
+      <a href="#">view cart</a>
+    </div>
+
+    <div class="colpay">
+      <h4><strong>we accept:</strong></h4>
+      <img src="clothes/pay.png" alt="payment types">
+    </div>  
+    
+    <div class="copyright">
+      <p>© 2023, butterfly fashion</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body> 
+</html>

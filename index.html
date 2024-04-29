@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!-- sets the language as: british english -->
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- the title that appears on the tab -->
+  <title>home | butterfly fashion</title>
+  <!-- the favicon that appears next to the name on the tab -->
+  <link rel="icon" type="image/x-icon" href="logo stuff/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+  <!-- connects the html file to the css stylesheet -->
+  <link href="style.css" rel="stylesheet"/>
+  <!-- connects to ion icons so that the icons from the website, e.g. the cart icon, can be displayed on the website -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<!-- the onload feature ensures that the cart numbers loads as the body of the pages loads as well -->
+<body onload="onLoadCartNumbers()">
+  <!-- displays the logo from butterfly fashion in the header -->
+  <section id="header">
+    <a href="index.html"><img src="logo stuff/butterflylogo.png" class="logo" alt="butterfly fashion logo"></a>
+
+  <!-- the navbar in the header that the user will use to navigate the website -->
+  <div>
+    <ul id="navbar">
+      <li><a class="active" href="index.html">home</a></li>
+      <li class="dropdown">
+        <a href="shop.html" id="dropbtn">shop</a>
+        <!-- adds a dropdown so the user can pick between the preteens or teens shopping section - makes it easier for them to navigate -->
+        <div class="dropdown-content">
+          <a href="preteens.html">preteens</a>
+          <a href="teens.html">teens</a>
+        </div>
+      </li>
+      <li><a href="blog.html">blog</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="help.html">help</a></li>
+      <!-- displays the cart icon and by default the number in the cart is 0 -->
+      <li><a class="lecart" href="cart.html"><ion-icon name="bag-handle-outline"  class="carticon"></ion-icon><span id="cart-num">0</span></a></li>
+    </ul>
+  </div>
+</section>
+
+  <!-- displays just below the header informing the user that shipping is free -->
+  <section id="shipping-free">
+    <div class="container-shipping">
+      <ion-icon name="airplane-outline" class="shipping-free-icon"></ion-icon>
+      <span class="shipping-free-text">free shipping. forever. our treat! love, butterfly fashion xox</span>
+    </div>
+  </section>
+
+  <!-- the landing page photo -->
+  <section id="landing"></section>
+
+  <section id="fproduct" class="sectionfp">
+    <h2>featured products</h2>
+    <p>winter collection for preteens (11-14yrs)</p>
+    <div class="fprocontainer">
+      <div class="fpro">
+        <img src="clothes/blue hoodie.jpg" alt="blue hoodie with the words 'have a good day'">
+        <div class="info">
+          <h5>floral & slogan graphic drawstring thermal lined hoodie</h5>
+          <div class="star">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£12</h4>
+        </div>
+        <a><ion-icon name="cart-outline" class="cart"></ion-icon></a>
+      </div>
+      <div class="fpro">
+        <img src="clothes/teddy front.jpg" alt="black and white plaid teddy jacket">
+        <div class="info">
+          <h5>buffalo plaid zip up dual pocket hooded teddy jacket</h5>
+          <div class="star">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£20</h4>
+        </div>
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fpro">
+        <img src="clothes/flower jeans.jpg" alt="black jeans with printed flowers and letters">
+        <div class="info">
+          <h5>letter & floral print jeans</h5>
+          <div class="star">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+          </div>
+          <h4>£19</h4>
+        </div>
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fpro">
+        <img src="clothes/brown.jpg" alt="brown striped drop shoulder sweatshirt dress">
+        <div class="info">
+          <h5>letter print striped trim drop shoulder sweatshirt dress</h5>
+          <div class="star">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£15</h4>
+        </div>
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fpro">
+        <img src="clothes/panda jacket.jpg" alt="cute panda jacket">
+        <div class="info">
+          <h5>panda & heart embroidery drop shoulder teddy jacket</h5>
+          <div class="star">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£21</h4>
+        </div>
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fpro">
+        <img src="clothes/anime.jpg" alt="anime style graphic hoodie dress">
+        <div class="info">
+          <h5>japanese letter & figure graphic hoodie dress</h5>
+          <div class="star">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£15</h4>
+        </div>
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fpro">
+        <img src="clothes/cool.jpg" alt="drawstring thermal hoodie">
+        <div class="info">
+          <h5>letter graphic kangaroo pocket drawstring thermal hoodie</h5>
+          <div class="star">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£14</h4>
+        </div>
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fpro">
+        <img src="clothes/skirt.jpg" alt="brown plaid skirt">
+        <div class="info">
+          <h5>brown plaid print mini skirt</h5>
+          <div class="star">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£5</h4>
+        </div>
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="fproductt" class="secfp">
+    <h2>featured products</h2>
+    <p>winter collection for teenagers (15-17yrs)</p>
+    <div class="fpcontainer">
+      <div class="fp">
+        <img src="clothes/vest.jpg" alt="sweater vest">
+        <div class="des">
+          <h5>letter patched striped trim cricket sweater vest</h5>
+          <div class="stars">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£11</h4>
+        </div> 
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fp">
+        <img src="clothes/blokecore.jpg" alt="thermal lined sweatshirt">
+        <div class="des">
+          <h5>letter graphic contrast collar thermal lined sweatshirt</h5>
+          <div class="stars">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£17</h4>
+        </div> 
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fp">
+        <img src="clothes/shawl.jpg" alt="teddy leather coat">
+        <div class="des">
+          <h5>shawl collar contrast teddy PU leather coat</h5>
+          <div class="stars">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£40</h4>
+        </div> 
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fp">
+        <img src="clothes/lol.jpg" alt="bear pattern teddy trousers">
+        <div class="des">
+          <h5>bear pattern teddy trousers</h5>
+          <div class="stars">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£18</h4>
+        </div> 
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fp">
+        <img src="clothes/teddy.jpg" alt="teddy hoodie with 3d ears">
+        <div class="des">
+          <h5>drop shoulder 3D ear teddy hoodie</h5>
+          <div class="stars">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£11</h4>
+        </div> 
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fp">
+        <img src="clothes/fuzzy.jpg" alt="white fuzzy trim open front coat">
+        <div class="des">
+          <h5>fuzzy trim open front coat</h5>
+          <div class="stars">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£35</h4>
+        </div> 
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fp">
+        <img src="clothes/floral.jpg" alt="floral print straight leg jeans">
+        <div class="des">
+          <h5>floral print straight leg jeans</h5>
+          <div class="stars">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£15</h4>
+        </div> 
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+      <div class="fp">
+        <img src="clothes/vestie.jpg" alt="sweater vest with heart pattern">
+        <div class="des">
+          <h5>checkered & heart pattern sweater vest without tee</h5>
+          <div class="stars">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-half-sharp"></ion-icon>
+          </div>
+          <h4 class="pricee">£10</h4>
+        </div> 
+        <a><ion-icon name="cart-outline" class="cart" ></ion-icon></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="banner" class="section-m1">
+    <button class="normal" onclick="redirectToNewArrivals()">shop now</button>
+  </section>
+
+  <script>
+    function redirectToNewArrivals() {
+      window.location.href = "newarrivals.html";
+    }
+  </script>
+ 
+  <!-- the popup to ask the user for feedback -->
+  <div id="popup">
+    <div id="popup-content">
+      <h2><strong>how can we make your experience better?</strong></h2>
+      <input type="text" placeholder="please type here...">
+      <button class="sendbutton">send</button>
+    </div>
+    <div id="popup-arrow-container">
+      <a class="arrow-up"><ion-icon name="chevron-up-circle-outline"></ion-icon></a>
+      <a class="arrow-down"><ion-icon name="chevron-down-circle-outline"></ion-icon></a>
+    </div>
+  </div>
+  
+  <script>
+  // selects the arrow up, arrow down and the whole popup content
+  const arrowUp = document.querySelector('#popup .arrow-up');
+  const arrowDown = document.querySelector('#popup .arrow-down');
+  const popupContainer = document.querySelector('#popup');
+
+  // adds a click event to the arrow up button
+  arrowUp.addEventListener('click', () => {
+    popupContainer.classList.remove('minimized');
+  });
+
+  // adds a click event to the arrow down button
+  arrowDown.addEventListener('click', () => {
+    popupContainer.classList.add('minimized');
+  });
+
+  // attaches a variable to the send button and the input field
+  var sendButton = document.querySelector(".sendbutton");
+  var inputField = document.querySelector("#popup-content input");
+
+    // adds a click event to the send button
+    sendButton.addEventListener("click", function(event) {
+      if (inputField.value.trim() === "") {
+        // If the input field is empty, display an error message and prevent the form from submitting
+        alert("please enter a message.");
+        event.preventDefault();
+      } else {
+        // If the input field is not empty, submit the form
+        alert('message sent. thank you for your help!');
+        // Clear input field
+        inputField.value = '';
+      }
+    });
+  </script>
+
+  <!-- the footer section -->
+  <footer class="section-p1">
+    <div class="col">
+      <img src="logo stuff/butterflylogo.png" alt="butterfly fashion logo">
+      <h4>contact</h4>
+      <p><strong>address:</strong> 90 springfield road, london, WC23 1GX</p>
+      <p><strong>phone:</strong> (+44) 020 7373 0027</p>
+      <p><strong>hours:</strong> 9am - 5pm, monday - saturday</p>
+      <div class="follow">
+        <h4>follow us</h4>
+        <div class="icon">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-icon name="logo-twitter"></ion-icon>
+          <ion-icon name="logo-instagram"></ion-icon>
+          <ion-icon name="logo-pinterest"></ion-icon>
+          <ion-icon name="logo-youtube"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>about</h4>
+      <a href="about.html">about us</a>
+      <a href="#">delivery information</a>
+      <a href="#">privacy policy</a>
+      <a href="#">terms & conditions</a>
+      <a href="#">contact us</a>
+    </div>
+
+    <div class="col">
+      <h4>my account</h4>
+      <a href="#">sign in</a>
+      <a href="#">sign up</a>
+      <a href="#">my wishlist</a>
+      <a href="#">track my order</a>
+      <a href="cart.html">view cart</a>
+    </div>
+
+    <div class="colpay">
+      <h4><strong>we accept:</strong></h4>
+      <img src="clothes/pay.png" alt="payment types">
+    </div>  
+    
+    <div class="copyright">
+      <p>© 2023, butterfly fashion</p>
+    </div>
+  </footer> 
+  <script src="script.js"></script>
+</body>
+</html>
